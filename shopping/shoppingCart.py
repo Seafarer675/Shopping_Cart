@@ -44,11 +44,12 @@ class ShoppingCart:
                 self.shopping_cart.clear()
                 print(f"\n付款成功！剩餘餘額: ${self.user_balance}")
 
-    def checkBalance(self):
-         if self.user_balance > 0:
-             print(f"\n剩餘餘額: ${self.user_balance}")
-         else:
-             print("\n餘額不足")
+    def checkBalance(self, total, paid):
+        balance = paid - total
+        if balance >= 0:
+            return balance
+        else:
+            return "餘額不足"
 
 if __name__ == '__main__':
     cart = ShoppingCart()
