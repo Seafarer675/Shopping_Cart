@@ -9,9 +9,9 @@ class TestShoppingCart(unittest.TestCase):
     # 測試檢查餘額功能是否是否如同預期執行
     def test_check_balance(self):
          cart = self.cart
-         self.assertEqual(cart.checkbalance(100, 50), 50)
-         self.assertEqual(cart.checkbalance(200, 100), 100)
-         self.assertEqual(cart.checkbalance(50, 100), "餘額不足")
+         self.assertEqual(cart.checkBalance(100, 50), 50)
+         self.assertEqual(cart.checkBalance(200, 100), 100)
+         self.assertEqual(cart.checkBalance(50, 100), "餘額不足")
 
 if __name__ == '__main__':
     unittest.main()
