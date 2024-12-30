@@ -109,7 +109,7 @@ class TestShoppingCart(unittest.TestCase):
         self.assertEqual(cart.products[2]['quantity'], 2)
         self.assertEqual(cart.user_balance, 70.0)
 
-    '''def test_checkBalance(self):
+    def test_checkBalance(self):
          cart = self.cart
          expected_output = "\n剩餘餘額: $100.0\n"
 
@@ -118,21 +118,7 @@ class TestShoppingCart(unittest.TestCase):
          actual_output = sys.stdout.getvalue()
          sys.stdout = sys.__stdout__
 
-         self.assertEqual(actual_output, expected_output)'''
-
-    def test_checkBalance(self):
-        cart = self.cart
-        cart.setBalance(100.0)  # 設定初始餘額
-
-        expected_output = "\n剩餘餘額: $100.0\n"
-
-        # 捕捉標準輸出
-        sys.stdout = StringIO()
-        cart.checkBalance()
-        actual_output = sys.stdout.getvalue()
-        sys.stdout = sys.__stdout__
-
-        self.assertEqual(actual_output, expected_output)
+         self.assertEqual(actual_output, expected_output)
 
 if __name__ == '__main__':
     unittest.main()
