@@ -120,5 +120,22 @@ class TestShoppingCart(unittest.TestCase):
 
          self.assertEqual(actual_output, expected_output)
 
+    def test_remove_from_cart(self):
+        # 測試移除購物車中存在的商品
+        self.cart.add_to_cart(1)
+        result_existing = self.cart.remove_from_cart(1)
+        self.assertEqual(result_existing, "商品1 已從購物車移除。")
+        self.assertEqual(len(self.cart.shopping_cart), 0)  # 確保購物車為空
+
+        # 測試嘗試移除不存在於購物車內的商品
+        result_non_existing = self.cart.remove_from_cart(99)
+        self.assertEqual(result_non_existing, "購物車內無此商品，請重新檢查編號。")
+
+        # 測試移除購物車內沒有的商品
+        self.cart.add_to_cart(1)
+        result_not_in_cart = self.cart.remove_from_cart(2)
+        self.assertEqual(result_not_in_cart, "購物車內無此商品，請重新檢查編號。")
+        self.assertEqual(len(self.cart.shopping_cart), 1)  # 確保商品1仍在購物車中
+
 if __name__ == '__main__':
     unittest.main()

@@ -59,6 +59,14 @@ class ShoppingCart:
         else:
             print("\n餘額不足")
 
+    def remove_from_cart(self, product_id):
+        for item in self.shopping_cart:
+            if item['id'] == product_id:
+                self.shopping_cart.remove(item)
+                print(f"\n{item['name']} 已從購物車移除。")
+                return
+        print("\n購物車內無此商品，請重新檢查編號。")
+
 if __name__ == '__main__':
     cart = ShoppingCart()
 
@@ -83,10 +91,15 @@ if __name__ == '__main__':
           cart.checkout()
 
       elif choice == "4":
+            product_id = int(input("\n請輸入要移除的商品編號: "))
+            cart.remove_from_cart(product_id)
+
+
+      elif choice == "5":
           print("\n謝謝光臨，再見！")
           break
 
-      elif choice == "5":
+      elif choice == "6":
            cart.checkBalance()
 
       else:
