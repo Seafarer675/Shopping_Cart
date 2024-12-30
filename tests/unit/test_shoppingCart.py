@@ -120,7 +120,7 @@ class TestShoppingCart(unittest.TestCase):
 
          self.assertEqual(actual_output, expected_output)
 
-    def test_remove_from_cart(self):
+    def test_remove_items(self):
         # 測試移除購物車中存在的商品
         self.cart.add_to_cart(1)
         result_existing = self.cart.remove_from_cart(1)

@@ -62,10 +62,11 @@ class ShoppingCart:
     def remove_from_cart(self, product_id):
         for item in self.shopping_cart:
             if item['id'] == product_id:
-                self.shopping_cart.remove(item)
-                print(f"\n{item['name']} 已從購物車移除。")
-                return
-        print("\n購物車內無此商品，請重新檢查編號。")
+                self.shopping_cart.remove(item)  # 移除商品
+                return f"{item['name']} 已從購物車移除。"  # 返回移除訊息
+
+        # 如果找不到商品，返回錯誤訊息
+        return "購物車內無此商品，請重新檢查編號。"
 
 if __name__ == '__main__':
     cart = ShoppingCart()
